@@ -1,0 +1,47 @@
+From 66205c56bbced1eab8b28bbac0f8a0b8dcd37853 Mon Sep 17 00:00:00 2001
+From: Pallavi Jha <pallavikumarijha@gmail.com>
+Date: Tue, 24 Dec 2013 18:08:01 +0530
+Subject: [PATCH] permament is corrected to permanent
+
+---
+ src/responder/common/negcache.c | 3 +--
+ src/responder/common/negcache.h | 2 +-
+ 2 files changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/src/responder/common/negcache.c b/src/responder/common/negcache.c
+index 5d82e52b5d615f629ab4dd646bae64647bdfdc77..d49a56d88b93704c86c6f136e4bfe018cc626b3d 100644
+--- a/src/responder/common/negcache.c
++++ b/src/responder/common/negcache.c
+@@ -26,7 +26,6 @@
+ #include <fcntl.h>
+ #include <time.h>
+ #include "tdb.h"
+-#include "responder/common/negcache.h"
+ 
+ #define NC_ENTRY_PREFIX "NCE/"
+ #define NC_USER_PREFIX NC_ENTRY_PREFIX"USER"
+@@ -583,7 +582,7 @@ done:
+     return 0;
+ }
+ 
+-int sss_ncache_reset_permament(struct sss_nc_ctx *ctx)
++int sss_ncache_reset_permanent(struct sss_nc_ctx *ctx)
+ {
+     int ret;
+ 
+diff --git a/src/responder/common/negcache.h b/src/responder/common/negcache.h
+index b8d385a95df7c3445f8af938fbec6ca4cf0d522d..00f979dbbda164cc84f739c1fd5987137f288720 100644
+--- a/src/responder/common/negcache.h
++++ b/src/responder/common/negcache.h
+@@ -67,7 +67,7 @@ int sss_ncache_set_service_port(struct sss_nc_ctx *ctx, bool permanent,
+                                 struct sss_domain_info *dom,
+                                 uint16_t port, const char *proto);
+ 
+-int sss_ncache_reset_permament(struct sss_nc_ctx *ctx);
++int sss_ncache_reset_permanent(struct sss_nc_ctx *ctx);
+ 
+ /* Set up the negative cache with values from filter_users and
+  * filter_groups in the sssd.conf
+-- 
+1.8.1.4
+
